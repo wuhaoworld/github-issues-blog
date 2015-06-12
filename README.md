@@ -35,7 +35,7 @@
 
 默认情况下你是用匿名权限访问 github 接口的， github 的访问限制是一个小时最多 60 次请求，这显然是不够的，如何提高限制呢？ 
 
-1. 到个人设置下的 Personal access tokens 页（https://github.com/settings/tokens），如下图，点击右上角的 Generate new token
+1. 到个人设置下的 Personal access tokens 页（https://github.com/settings/tokens ），如下图，点击右上角的 Generate new token
     
     ![](http://img-storage.qiniudn.com/15-6-12/56879685.jpg)
 
