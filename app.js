@@ -1,3 +1,4 @@
+Ractive.DEBUG = false;
 function index(page){
     var page = parseInt(page) || 1;
     window._G = window._G || {post: {}, postList: {}};
@@ -12,8 +13,8 @@ function index(page){
         data:{
             filter       : 'created',
             page         : page,
-            per_page     : _config['per_page'],
-            access_token : _config['access_token']
+            per_page     : _config['per_page']
+            // access_token : _config['access_token']
         },
         beforeSend:function(){
           $('#container').html('<center><img src="loading.gif" class="loading"></center>');
@@ -59,6 +60,16 @@ function index(page){
     });
 }
 
+// 动态加载多说评论框的函数
+function toggleDuoshuoComments(container, id){
+    var el = document.createElement('div');//该div不需要设置class="ds-thread"
+    var url = window.location.href;
+    el.setAttribute('data-thread-key', id);//必选参数
+    el.setAttribute('data-url', url);//必选参数
+    DUOSHUO.EmbedThread(el);
+    jQuery(container).append(el);
+}
+
 function detail(id){
     if(!window._G){
       window._G = {post: {}, postList: {}};
@@ -68,12 +79,13 @@ function detail(id){
     if(_G.post[id].body != undefined){
       $('#container').html(_G.post[id].body);
       $('#title').html(_G.post[id].title);
+      toggleDuoshuoComments('#container', id);
       return;
     }
     $.ajax({
         url:"https://api.github.com/repos/"+_config['owner']+"/"+_config['repo']+"/issues/" + id,
         data:{
-            access_token:_config['access_token']
+            // access_token:_config['access_token']
         },
         beforeSend:function(){
           $('#container').html('<center><img src="loading.gif" alt="loading" class="loading"></center>');
@@ -93,8 +105,10 @@ function detail(id){
             });     
             window._G.post[id].title = title.toHTML();
             $('#title').html(window._G.post[id].title);
+            toggleDuoshuoComments('#container', id);
         }
-    });    
+    });  
+
 }
 
 var helpers = Ractive.defaults.data;

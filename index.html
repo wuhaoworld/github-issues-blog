@@ -10,9 +10,11 @@
     <script src="js/ractive.js"></script>    
     <script src="js/markdown.js"></script>    
     <script src="config.js"></script>
+    <script>var duoshuoQuery = {short_name:"hello1234"};</script>
+    <script src="http://static.duoshuo.com/embed.js"></script>
 </head>
 <body>
-<div id="header"><h1><a href="#/" class="blog_title">耗子吴博客</a></h1>
+<div id="header"><h1><a href="#/" class="blog_title">用于演示的博客</a></h1>
 </div>
 <div id="container">
     <center><img src="loading.gif" alt="loading" class="loading"></center>
@@ -32,6 +34,7 @@
      <span class="create_at">发表于 {{formatTime(created_at)}}</span>
      <div class="content">{{{toHTML(body)}}}</div>
     {{/post}}
+    <div id="comments"></div>
 </script>
 <script type="text/ractive" id="titleTpl">
 {{title}}
