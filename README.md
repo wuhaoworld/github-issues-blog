@@ -30,6 +30,8 @@
 
 保存后即可通过 `http://用户名.github.io/github-issues-blog` 访问
 
+    注意：至少得有一次提交，github 的 pages 功能才会生效，直接 fork，没有任何修改是不行的。
+
 如果你想绑定独立域名，修改根目录的 CNAME 文件，将其中的网址修改为你的域名，并把你的域名 CNAME 到 `用户名.github.io` 即可
 
 ## 1. 部署方法(方案2)
