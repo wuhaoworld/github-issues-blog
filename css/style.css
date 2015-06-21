@@ -1,3 +1,6 @@
+body{
+  padding: 10px;
+}
 .blog_title{
   font-size: 26px;
   color: #333;
@@ -35,11 +38,14 @@ h2{
   float: right;
 }
 
-#container {
-  border: 1px solid #ccc;
-  box-shadow: 2px -2px 10px #ddd;
-  padding: 30px 60px 40px 60px;
+@media only screen and (min-width: 600px) {
+    #container {
+      border: 1px solid #ccc;
+      box-shadow: 2px -2px 10px #ddd;
+      padding: 30px 60px 40px 60px;
+    }
 }
+
 #header{
   margin-bottom: 20px;
 }
