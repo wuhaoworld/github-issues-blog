@@ -59,10 +59,10 @@ function index(page){
 
 // 动态加载多说评论框的函数
 function toggleDuoshuoComments(container, id){
-    var el = document.createElement('div');//该div不需要设置class="ds-thread"
+    var el = document.createElement('div');
     var url = window.location.href;
-    el.setAttribute('data-thread-key', id);//必选参数
-    el.setAttribute('data-url', url);//必选参数
+    el.setAttribute('data-thread-key', id);
+    el.setAttribute('data-url', url);
     DUOSHUO.EmbedThread(el);
     jQuery(container).append(el);
 }
@@ -89,15 +89,12 @@ function detail(id){
         },
         success:function(data){
             var ractive = new Ractive({
+                 el: "#container",
                  template: '#detailTpl',
                  data: {post: data}
             });
-            
-            window._G.post[id].body = ractive.toHTML();
-            $('#container').html(window._G.post[id].body);
 
-            window._G.post[id].title = data.title + " | " + _config['blog_name'];;
-            $('title').html(window._G.post[id].title);
+            $('title').html(data.title + " | " + _config['blog_name']);
             toggleDuoshuoComments('#container', id);
         }
     });  
