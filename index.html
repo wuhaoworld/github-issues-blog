@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title id="title">用于演示的博客</title>
+    <title>用于演示的博客</title>
     <link rel='stylesheet' href='css/GitHub2.css' type='text/css'/>
     <link rel='stylesheet' href='css/style.css' type='text/css'/>
     <script src="js/jquery-2.0.3.min.js"></script>
     <script src="js/director.min.js"></script>   
-    <script src="js/ractive.js"></script>    
+    <script src="js/ractive.min.js"></script>    
     <script src="js/markdown.js"></script>    
     <script src="config.js"></script>
     <script src="http://static.duoshuo.com/embed.js"></script>
@@ -33,9 +33,6 @@
      <span class="create_at">发表于 {{formatTime(created_at)}}</span>
      <div class="content">{{{toHTML(body)}}}</div>
     {{/post}}
-</script>
-<script type="text/ractive" id="titleTpl">
-{{title}}
 </script>
 <script src="app.js"></script>
 </body>
