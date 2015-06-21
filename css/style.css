@@ -1,5 +1,5 @@
 body{
-  padding: 10px;
+  padding: 0px 10px 30px 10px;
 }
 .blog_title{
   font-size: 26px;
@@ -75,4 +75,7 @@ img{
   float: right;
   color: #999;
   font-family: 'Open Sans', sans-serif
+}
+.ds-social-links{
+  width: 300px !important; /* 修正多说在 iphone5 宽度下带来的横向滚动条的问题*/
 }
