@@ -2,7 +2,7 @@ Ractive.DEBUG = false;
 function index(page){
     var page = parseInt(page) || 1;
     window._G = window._G || {post: {}, postList: {}};
-    $('#title').html(_config['blog_name']);
+    $('title').html(_config['blog_name']);
     if(_G.postList[page] != undefined){
       $('#container').html(_G.postList[page]);
       return;
@@ -50,11 +50,8 @@ function index(page){
               window._G.post[data[i].number] = {};
               window._G.post[data[i].number].body = ractive.toHTML();
 
-              var title = new Ractive({
-                 template: '#titleTpl',
-                 data: {title: data[i].title + " | " + _config['blog_name']}
-              });     
-              window._G.post[data[i].number].title = title.toHTML();
+              var title = data[i].title + " | " + _config['blog_name'];
+              window._G.post[data[i].number].title = title;
             }
         }
     });
@@ -62,10 +59,10 @@ function index(page){
 
 // 动态加载多说评论框的函数
 function toggleDuoshuoComments(container, id){
-    var el = document.createElement('div');//该div不需要设置class="ds-thread"
+    var el = document.createElement('div');
     var url = window.location.href;
-    el.setAttribute('data-thread-key', id);//必选参数
-    el.setAttribute('data-url', url);//必选参数
+    el.setAttribute('data-thread-key', id);
+    el.setAttribute('data-url', url);
     DUOSHUO.EmbedThread(el);
     jQuery(container).append(el);
 }
@@ -78,7 +75,7 @@ function detail(id){
     
     if(_G.post[id].body != undefined){
       $('#container').html(_G.post[id].body);
-      $('#title').html(_G.post[id].title);
+      $('title').html(_G.post[id].title);
       toggleDuoshuoComments('#container', id);
       return;
     }
@@ -92,19 +89,12 @@ function detail(id){
         },
         success:function(data){
             var ractive = new Ractive({
+                 el: "#container",
                  template: '#detailTpl',
                  data: {post: data}
             });
-            
-            window._G.post[id].body = ractive.toHTML();
-            $('#container').html(window._G.post[id].body);
 
-            var title = new Ractive({
-               template: '#titleTpl',
-               data: {title: data.title + " | " + _config['blog_name']}
-            });     
-            window._G.post[id].title = title.toHTML();
-            $('#title').html(window._G.post[id].title);
+            $('title').html(data.title + " | " + _config['blog_name']);
             toggleDuoshuoComments('#container', id);
         }
     });  
