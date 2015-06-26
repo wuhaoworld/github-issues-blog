@@ -272,12 +272,12 @@ pre code {
   border-radius: 3px; }
 
 pre {
-  background-color: #f8f8f8;
+  background-color: #222;
   border: 1px solid #cccccc;
   font-size: 13px;
   line-height: 19px;
   overflow: auto;
-  padding: 6px 10px;
+  padding: .5em;
   border-radius: 3px; }
   pre code, pre tt {
     background-color: transparent;

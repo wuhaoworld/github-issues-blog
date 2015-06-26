@@ -57,6 +57,12 @@ function index(page){
     });
 }
 
+function highlight(){
+  $('pre code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+}
+
 // 动态加载多说评论框的函数
 function toggleDuoshuoComments(container, id){
     var el = document.createElement('div');
@@ -77,6 +83,7 @@ function detail(id){
       $('#container').html(_G.post[id].body);
       $('title').html(_G.post[id].title);
       toggleDuoshuoComments('#container', id);
+      highlight();
       return;
     }
     $.ajax({
@@ -96,6 +103,7 @@ function detail(id){
 
             $('title').html(data.title + " | " + _config['blog_name']);
             toggleDuoshuoComments('#container', id);
+            highlight();
         }
     });  
 
@@ -103,7 +111,7 @@ function detail(id){
 
 var helpers = Ractive.defaults.data;
 helpers.toHTML = function(content){
-    return markdown.toHTML(content,'Maruku');
+    return marked(content);
 }
 helpers.formatTime = function(time){
     return time.substr(0,10);
