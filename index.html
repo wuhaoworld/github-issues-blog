@@ -34,7 +34,7 @@
     {{#post}}
      <h1>{{title}}</h1>
      <span class="create_at">发表于 {{formatTime(created_at)}}</span>
-     <div class="content">{{{toHTML(body)}}}</div>
+     <div class="content">{{{markdown2HTML(body)}}}</div>
     {{/post}}
 </script>
 <script src="app.js"></script>

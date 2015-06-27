@@ -13,8 +13,8 @@ function index(page){
         data:{
             filter       : 'created',
             page         : page,
+            // access_token : _config['access_token'],
             per_page     : _config['per_page']
-            // access_token : _config['access_token']
         },
         beforeSend:function(){
           $('#container').html('<center><img src="loading.gif" class="loading"></center>');
@@ -49,7 +49,7 @@ function index(page){
               });
               window._G.post[data[i].number] = {};
               window._G.post[data[i].number].body = ractive.toHTML();
-
+              
               var title = data[i].title + " | " + _config['blog_name'];
               window._G.post[data[i].number].title = title;
             }
@@ -110,7 +110,7 @@ function detail(id){
 }
 
 var helpers = Ractive.defaults.data;
-helpers.toHTML = function(content){
+helpers.markdown2HTML = function(content){
     return marked(content);
 }
 helpers.formatTime = function(time){
