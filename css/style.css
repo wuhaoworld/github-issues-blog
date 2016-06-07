@@ -16,7 +16,10 @@ h2{
   margin-left: -8px;
   border-radius: 2px;
 }
-
+.avatar{
+	display: inline;
+	margin: 0px 0px;
+}
 .create_at{
   color: #999;
   display: block;
