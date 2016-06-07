@@ -24,7 +24,11 @@
 <script type="text/ractive" id="listTpl">
     <ul class="postlist">
         {{#posts}}
-        <li class="postlist"><a href="#post/{{number}}">{{title}}</a><span class="datetime">{{formatTime(created_at)}}</span></li>
+        <li class="postlist"><a href="#post/{{number}}">{{title}}</a>
+        <span class="datetime">
+        <!--<img src="{{user.avatar_url}}&s=18" class="avatar">.-->
+        <a href="{{user.html_url}}">{{user.login}}</a>.
+        {{formatTime(created_at)}}</span></li>
         {{/posts}}
     </ul>
     {{#prev}}<a href="#p{{page-1}}" class="prev">上一页</a>{{/prev}}
@@ -33,7 +37,9 @@
 <script type="text/ractive" id="detailTpl">
     {{#post}}
      <h1>{{title}}</h1>
-     <span class="create_at">发表于 {{formatTime(created_at)}}</span>
+     <span class="create_at">
+        <a href="{{user.html_url}}"><img src="{{user.avatar_url}}&s=18" class="avatar">.{{user.login}}</a>.
+        发表于 {{formatTime(created_at)}}</span>
      <div class="content">{{{markdown2HTML(body)}}}</div>
     {{/post}}
 </script>
