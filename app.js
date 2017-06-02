@@ -72,7 +72,7 @@ function highlight(){
     DUOSHUO.EmbedThread(el);
     jQuery(container).append(el);
 }
-
+*/
 function detail(id){
     if(!window._G){
       window._G = {post: {}, postList: {}};
@@ -82,7 +82,7 @@ function detail(id){
     if(_G.post[id].body != undefined){
       $('#container').html(_G.post[id].body);
       $('title').html(_G.post[id].title);
-      toggleDuoshuoComments('#container', id);
+      //toggleDuoshuoComments('#container', id);
       highlight();
       return;
     }
@@ -102,13 +102,13 @@ function detail(id){
             });
 
             $('title').html(data.title + " | " + _config['blog_name']);
-            toggleDuoshuoComments('#container', id);
+            //toggleDuoshuoComments('#container', id);
             highlight();
         }
     });  
 
 }
-*/
+
 var helpers = Ractive.defaults.data;
 helpers.markdown2HTML = function(content){
     return marked(content);
