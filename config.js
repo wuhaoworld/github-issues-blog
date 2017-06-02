@@ -7,4 +7,4 @@ var _config = {
     per_page        : '15'                    // 默认一页显示几篇文章
 }
 
-var duoshuoQuery = {short_name:_config['duoshuo_id']};
+//var duoshuoQuery = {short_name:_config['duoshuo_id']};
