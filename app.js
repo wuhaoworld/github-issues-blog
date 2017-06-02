@@ -13,7 +13,7 @@ function index(page){
         data:{
             filter       : 'created',
             page         : page,
-            // access_token : _config['access_token'],
+             access_token : _config['access_token'],
             per_page     : _config['per_page']
         },
         beforeSend:function(){
@@ -89,7 +89,7 @@ function detail(id){
     $.ajax({
         url:"https://api.github.com/repos/"+_config['owner']+"/"+_config['repo']+"/issues/" + id,
         data:{
-            // access_token:_config['access_token']
+             access_token:_config['access_token']
         },
         beforeSend:function(){
           $('#container').html('<center><img src="loading.gif" alt="loading" class="loading"></center>');
