@@ -64,7 +64,7 @@ function highlight(){
 }
 
 // 动态加载多说评论框的函数
-function toggleDuoshuoComments(container, id){
+/*function toggleDuoshuoComments(container, id){
     var el = document.createElement('div');
     var url = window.location.href;
     el.setAttribute('data-thread-key', id);
@@ -108,7 +108,7 @@ function detail(id){
     });  
 
 }
-
+*/
 var helpers = Ractive.defaults.data;
 helpers.markdown2HTML = function(content){
     return marked(content);
