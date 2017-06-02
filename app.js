@@ -13,7 +13,7 @@ function index(page){
         data:{
             filter       : 'created',
             page         : page,
-            // access_token : _config['access_token'],
+             access_token : _config['access_token'],
             per_page     : _config['per_page']
         },
         beforeSend:function(){
@@ -64,7 +64,7 @@ function highlight(){
 }
 
 // 动态加载多说评论框的函数
-function toggleDuoshuoComments(container, id){
+/*function toggleDuoshuoComments(container, id){
     var el = document.createElement('div');
     var url = window.location.href;
     el.setAttribute('data-thread-key', id);
@@ -72,7 +72,7 @@ function toggleDuoshuoComments(container, id){
     DUOSHUO.EmbedThread(el);
     jQuery(container).append(el);
 }
-
+*/
 function detail(id){
     if(!window._G){
       window._G = {post: {}, postList: {}};
@@ -82,14 +82,14 @@ function detail(id){
     if(_G.post[id].body != undefined){
       $('#container').html(_G.post[id].body);
       $('title').html(_G.post[id].title);
-      toggleDuoshuoComments('#container', id);
+      //toggleDuoshuoComments('#container', id);
       highlight();
       return;
     }
     $.ajax({
         url:"https://api.github.com/repos/"+_config['owner']+"/"+_config['repo']+"/issues/" + id,
         data:{
-            // access_token:_config['access_token']
+             access_token:_config['access_token']
         },
         beforeSend:function(){
           $('#container').html('<center><img src="loading.gif" alt="loading" class="loading"></center>');
@@ -102,7 +102,7 @@ function detail(id){
             });
 
             $('title').html(data.title + " | " + _config['blog_name']);
-            toggleDuoshuoComments('#container', id);
+            //toggleDuoshuoComments('#container', id);
             highlight();
         }
     });  
