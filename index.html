@@ -34,15 +34,16 @@
     {{#prev}}<a href="#p{{page-1}}" class="prev">上一页</a>{{/prev}}
     {{#next}}<a href="#p{{page+1}}" class="next">下一页</a>{{/next}}
 </script>
-<script type="text/ractive" id="detailTpl">
-    {{#post}}
-     <h1>{{title}}</h1>
-     <span class="create_at">
-        <a href="{{user.html_url}}"><img src="{{user.avatar_url}}&s=18" class="avatar">.{{user.login}}</a>.
-        发表于 {{formatTime(created_at)}}</span>
-     <div class="content">{{{markdown2HTML(body)}}}</div>
-    {{/post}}
-</script>
+<style>.gc-comments {font:12px/1.5 Lantinghei SC,Microsoft Yahei,Hiragino Sans GB,Microsoft Sans Serif,WenQuanYi Micro Hei,sans-serif}</style>
+<script src="https://unpkg.com/github-comments/gc.js"></script>
+<div class="gc-comments" data-repos="nimojs/github-comments" data-issues="1" >
+    <div class="gc-comments-title">
+        评论
+    </div>
+    <div class="gc-comments-info">
+        想在此留下评论，请访问 <a target="_blank" href="issues_link">issues_link</a> 提交评论
+    </div>
+</div>
 <script src="app.js"></script>
 </body>
 </html>
